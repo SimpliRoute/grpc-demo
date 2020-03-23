@@ -1,0 +1,10 @@
+init:
+	./scripts/init.sh
+server:
+	./scripts/run_grpc_server.sh
+request_node:
+	./scripts/request_node_client.sh
+request_python:
+	./scripts/request_python_client.sh
+compile_protos:
+	./scripts/compile_py_protos.sh

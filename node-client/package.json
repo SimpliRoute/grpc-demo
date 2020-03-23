@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "client": "node client.js"
+  }
+}
