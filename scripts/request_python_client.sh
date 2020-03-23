@@ -8,6 +8,7 @@ request() {
     python client.py
 }
 
+export PYTHONPATH=$(PWD)/protos/build/python
 activate_venv && request
 
 

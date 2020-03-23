@@ -1,14 +1,20 @@
-const { service, clientCredentials } = require("../node-service-def/service");
-
 const SERVER_HOST = process.env.HOST || "0.0.0.0";
 const SERVER_PORT = process.env.PORT || "50051";
 const SERVER_ADDRESS = `${SERVER_HOST}:${SERVER_PORT}`;
 
-const client = new service.Greeter(SERVER_ADDRESS, clientCredentials);
+const messages = require("../protos/build/js/hello_pb");
+const services = require("../protos/build/js/hello_grpc_pb");
+
+const credentials = require("../protos/build/js/grpc_credentials");
+
+const client = new services.GreeterClient(SERVER_ADDRESS, credentials);
+var request = new messages.HelloRequest();
 
 const user = "gbahamondezc";
 
-client.sayHello({ name: user }, (err, message) => {
+request.setName(user);
+
+client.sayHello(request, (err, message) => {
   if (err) {
     console.log("Error happened", err);
   }

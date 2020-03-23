@@ -5,7 +5,6 @@ import grpc
 import hello_pb2
 import hello_pb2_grpc
 
-
 PROTO_PATH = "../protos/hello.proto"
 
 SERVER_HOST = os.getenv("HOST", "0.0.0.0")

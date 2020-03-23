@@ -20,5 +20,5 @@ run_yarn() {
 
 set_node_version
 cd node-server; run_yarn
-cd ../node-service-def; run_yarn
-cd ../python-client; setup_python
+cd ../protos/build/js; run_yarn
+cd ../../../python-client; setup_python

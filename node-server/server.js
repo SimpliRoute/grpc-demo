@@ -1,7 +1,8 @@
 const grpc = require("grpc");
-const { service } = require("../node-service-def/service");
-
 const chalk = require("chalk");
+
+const messages = require("../protos/build/js/hello_pb");
+const services = require("../protos/build/js/hello_grpc_pb");
 
 const SERVER_HOST = process.env.HOST || "0.0.0.0";
 const SERVER_PORT = process.env.PORT || "50051";
@@ -18,12 +19,12 @@ const gRPCCallLogger = call => {
   console.log(chalk.green("Params => "), JSON.stringify(call.request, null, 4));
 };
 
-server.addService(service.Greeter.service, {
+server.addService(services.GreeterService, {
   sayHello: (call, callback) => {
     gRPCCallLogger(call);
-    callback(null, {
-      message: `Hello ${call.request.name.toUpperCase()}`
-    });
+    const response = new messages.HelloReply();
+    response.setMessage(`Hello ${call.request.getName().toUpperCase()}`);
+    callback(null, response);
   }
 });
 

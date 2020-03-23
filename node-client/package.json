@@ -1,5 +1,8 @@
 {
   "scripts": {
     "client": "node client.js"
+  },
+  "dependencies": {
+    "grpc": "^1.24.2"
   }
 }

@@ -8,3 +8,4 @@ request_python:
 	./scripts/request_python_client.sh
 compile_protos:
 	./scripts/compile_py_protos.sh
+	./scripts/compile_js_protos.sh
