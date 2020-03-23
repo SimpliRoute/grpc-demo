@@ -17,7 +17,7 @@ This repo contains an example of a very basic gRPC server definition in NodeJS w
 # Install server and clients deps
 $ make init
 
-# Recompile protos python client
+# Recompile protos for js and python
 $ make compile_protos
 
 # Run server
